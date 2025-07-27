@@ -138,11 +138,17 @@ export interface LabelAnnotationOptions extends CoreAnnotationOptions, LabelType
   rotation?: Scriptable<number, PartialEventContext>
 }
 
+interface InitContext {
+  chart: Chart,
+  properties: AnnotationBoxModel,
+  options: AnnotationOptions
+}
+
 export interface DoughnutLabelAnnotationOptions extends AnnotationEvents, DoughnutLabelOptions, ShadowOptions {
   autoFit?: Scriptable<boolean, PartialEventContext>,
   autoHide?: Scriptable<boolean, PartialEventContext>,
   id?: string,
-  init: boolean | ((chart: Chart, properties: AnnotationBoxModel, options: AnnotationOptions) => void | boolean | AnnotationBoxModel),
+  init: boolean | ((ctx: InitContext) => void | boolean | AnnotationElement),
   spacing?: Scriptable<number, PartialEventContext>
 }
 
