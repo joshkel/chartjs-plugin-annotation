@@ -48,10 +48,11 @@
     "test": "cross-env NODE_ENV=test concurrently --group \"npm:test-*\"",
     "test-karma": "karma start ./karma.conf.cjs --auto-watch --single-run",
     "test-lint": "npm run lint",
-    "test-types": "tsc -p types/tests/",
+    "test-types": "tsc -p types/tests/ && attw --pack",
     "test-integration": "mocha --full-trace test/integration/*-test.js"
   },
   "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.2",
     "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@rollup/plugin-terser": "^0.4.0",
