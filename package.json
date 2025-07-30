@@ -8,7 +8,7 @@
   "type": "module",
   "main": "dist/chartjs-plugin-annotation.cjs",
   "module": "dist/chartjs-plugin-annotation.esm.js",
-  "types": "dist/chartjs-plugin-annotation.d.cts",
+  "types": "dist/chartjs-plugin-annotation.d.ts",
   "jsdelivr": "dist/chartjs-plugin-annotation.min.js",
   "unpkg": "dist/chartjs-plugin-annotation.min.js",
   "exports": {
@@ -54,7 +54,6 @@
   "devDependencies": {
     "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-node-resolve": "^15.0.1",
-    "@rollup/plugin-replace": "^6.0.2",
     "@rollup/plugin-terser": "^0.4.0",
     "@simonbrunel/vuepress-plugin-versions": "^0.2.0",
     "@typescript-eslint/eslint-plugin": "^5.51.0",

@@ -1,5 +1,4 @@
 import resolve from '@rollup/plugin-node-resolve';
-import replace from '@rollup/plugin-replace';
 import terser from '@rollup/plugin-terser';
 import json from '@rollup/plugin-json';
 import {readFileSync} from 'fs';
@@ -39,7 +38,8 @@ export default [
       banner,
       format: 'umd',
       indent: false,
-      globals
+      globals,
+      exports: 'named'
     },
     external
   },
@@ -84,22 +84,12 @@ export default [
   {
     input: './types/index.d.ts',
     output: [{file: exp.import.types, format: 'es'}],
-    plugins: [dts()],
+    plugins: [dts()]
   },
   // .d.cts
   {
     input: './types/index.d.ts',
     output: [{file: exp.require.types, format: 'cjs'}],
-    plugins: [
-      replace({
-        preventAssignment: true,
-        values: {
-          '// declare namespace Annotation {': 'declare namespace Annotation {',
-          '// } // declare namespace Annotation': '} // declare namespace Annotation',
-          'export default Annotation': 'export = Annotation',
-        }
-      }),
-      dts(),
-    ],
+    plugins: [dts()]
   },
 ];
